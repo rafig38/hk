@@ -7,7 +7,7 @@ pushRight str = x++str
 pushRight :: String -> Int -> String
 pushRight str lineLength = x++str 
   where d = (lineLength - (length str))
-  comp = [x |" " <- [1..d]]
+ -- comp = [x |" " <- [1..d]]
           
 		 
 
