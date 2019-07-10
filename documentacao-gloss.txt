@@ -1,0 +1,16 @@
+Documentacao:
+http://hackage.haskell.org/package/gloss
+
+Tutorial:
+http://andrew.gibansky.com/blog/haskell/haskell-gloss/#_gloss
+
+Site oficial:
+http://gloss.ouroborus.net/
+
+
+building `atom` on Slackware64 14.2 fails at:
+Package version: 0.8.3 not found
+child_process.js:624
+    throw err;
+
+

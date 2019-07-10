@@ -1,0 +1,53 @@
+cabal with sandbox:
+
+$ mkdir <nome da pasta>
+$ cd <nome da pasta criada>
+$ cabal sandbox init
+-- cabal will be creating a folder with this mesage:
+
+Writing a default package environment file to
+/path/to/<nome da pasta>/cabal.sandbox.config 
+Creating a new sandbox at
+/path/to/<nome da pasta>/.cabal-sandbox
+
+Agora com o sandbox rodando, vamos criar o primeiro pacote. Devemos ainda está dentro da pasta criada.
+o comando abaixo irá colocar a pasta criada dentro de umdiretorio de pacotes haskell (assim como o sandbox)
+
+$ cabal init
+
+Após ser executado o comando acima, diversas perguntas surgirão, deveremos ignorar várias delas (dando ENTER)
+em todas, com exceção das pergunta: "What does this package build?"[O que este pacote irá construir ou gerar?]
+
+What does the package build:
+   1) Library
+   2) Executable
+Your choice?
+Escolheremos a opção 2. [Executável]
+
+O processor irar gerar diversos arquivos dentro da pasta criada. Um deles é o Main.hs.
+Dentro dele é que iremos escrever nosso códigos. Exemplo simples:
+
+
+Dentro do arquivo Main.hs:
+
+module Main(main) where
+
+main = putStrLn "Hello, World!"
+
+Após salvar o conteúdo acima, podemos executar com o comando:
+
+$ cabal run
+
+A saída será algo parecido com:
+
+Package has never been configured. Configuring with default flags. If this
+fails, please run configure manually.
+Resolving dependencies...
+Configuring <pasta criada>-0.1.0.0...
+Warning: The 'license-file' field refers to the file 'LICENSE' which does not exist. 
+Preprocessing executable '<pasta criada>' for <pasta criada>-0.1.0.0...
+[1 of 1] Compiling Main             ( Main.hs, dist/build/<pasta criada>/<pasta criada>-tmp/Main.o )
+Linking dist/build/<pasta criada>/<pasta criada> ...
+Hello, World! 
+
+
