@@ -1,15 +1,15 @@
+{--
+Dos slides "aula13-14 Gloss" os exercícios tapete de Sierpinsky e curva de Koch
+- Todos os exercícios dos slides "aula15 polimorfismoETypeClasses"
+--}
+-- TAPETE
 
 module Main(main) where
 
 import Graphics.Gloss
 
-width, height, offset :: Int
-width = 500
-height = 500
-offset = -20
-
 window :: Display
-window = InWindow "fractal quadrado" (width, height) (offset, offset)
+window = InWindow "fractal quadrado" (500, 500) (-20, -20)
 
 background :: Color
 background = white
@@ -28,5 +28,6 @@ sp n (x, y) sz = pictures [ polygon [(x+sz, y+sz), (x+sz, y+2*sz), (x+2*sz, y+2*
                             
 main :: IO ()
 main = display window background (sp 4 (-150, -150) 200)
+
 
 
