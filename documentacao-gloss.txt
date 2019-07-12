@@ -8,9 +8,6 @@ Site oficial:
 http://gloss.ouroborus.net/
 
 
-building `atom` on Slackware64 14.2 fails at:
-Package version: 0.8.3 not found
-child_process.js:624
-    throw err;
+
 
 
