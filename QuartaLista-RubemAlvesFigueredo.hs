@@ -2,7 +2,9 @@
  Todos os exercícios dos slides "aula15 polimorfismoETypeClasses"
 -}
 --aulas-13e14 gloss
+---------------------------------------------------------------------
 -- TAPETE --
+{--
 module Main(main) where
 import Graphics.Gloss
 
@@ -26,8 +28,10 @@ tapete n (x, y) sz = pictures [ polygon [(x+sz, y+sz), (x+sz, y+2*sz), (x+2*sz, 
 
 main :: IO ()
 main = display window background (tapete 4 (-150, -150) 200)
-
+--}
+--------------------------------------------------------------------
 -- Curva de Koch --
+{--
 module Main(main) where
 import Graphics.Gloss
 import qualified Graphics.Gloss.Data.Point.Arithmetic as V
@@ -50,7 +54,8 @@ ckoch n [p,q] = pictures[ckoch (n-1) [p, p1]
 
 main :: IO ()
 main = display window white (ckoch 3 [(-100, 10),(300, 10)])
-
+--}
+----------------------------------------------------------------
 --aula-15 polimorfismoETypeClasses
 
 {- 1. Considere a seguinte função:
@@ -60,7 +65,7 @@ R- shift :: ((a,b), c) -> (a, (b, c))
 -}
 shift :: ((a,b),c) -> (a, (b,c))
 shift ((x, y), z) = (x, (y, z))
-
+----------------------------------------------------------------
 {-2. Considere a seguinte função:
 zip' [] ps = []
 zip' ps [] = []
@@ -79,7 +84,7 @@ zip' :: [a] -> [b] -> [(a,b)]
 zip' [] ps = []
 zip' ps [] = []
 zip' (p:ps) (q:qs) = (p, q) : zip' ps qs
-
+----------------------------------------------------------------
 {-3.
 Defina uma função "numEqual" que pegue uma lista "xs" de items e
 um item "x" e retorne o número de vezes que "x" ocorre dentro de "xs".
@@ -102,7 +107,7 @@ elem' :: Ord a => a -> [a] -> Bool
 elem' x xs
     | (numEqual x xs) >= 1 = True
     | otherwise            = False
-
+----------------------------------------------------------------
 {-4.
 Defina a função "oneLookupFirst" que pega uma lista de pares e
 um item. Digamos que o tipo dos pares é "(a, b)" e que o tipo do
@@ -131,7 +136,7 @@ oneLookupSecond _ [] = error "empty list!"
 oneLookupSecond x (y:ys)
    | x == snd(y) = fst (y)
    | otherwise = oneLookupSecond x (ys)
-
+----------------------------------------------------------------
 {-5. Considere a seguinte função
 misterio y x = [ show z | z <- x, elem z y ]
 Qual é eu seu tipo mais geral?
@@ -143,3 +148,4 @@ R - misterio :: (Eq a, Show a) => [a] -> [a] -> [String]
 -}
 misterio :: (Eq a, Show a) => [a] -> [a] -> [String]
 misterio y x = [ show z | z <- x, elem z y ]
+----------------------------------------------------------------
