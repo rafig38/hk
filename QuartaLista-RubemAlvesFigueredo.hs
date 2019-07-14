@@ -7,7 +7,7 @@ module Main(main) where
 import Graphics.Gloss
 
 window :: Display
-window = InWindow "fractal quadrado" (500, 500) (-20, -20)
+window = InWindow "Tapete" (500, 500) (-20, -20)
 
 background :: Color
 background = white
@@ -45,8 +45,8 @@ ckoch n [p,q] = pictures[ckoch (n-1) [p, p1]
                         where
                             v = mulSV (1/3) (q V.- p)
                             p1 = p V.+ v
-                            p2 = p1 V.+ rotateV (pi/4) v
-                            p3 = p2 V.+ rotateV (-pi/4) v
+                            p2 = p1 V.+ rotateV (pi/3) v
+                            p3 = p2 V.+ rotateV (-pi/3) v
 
 main :: IO ()
 main = display window white (ckoch 3 [(-100, 10),(300, 10)])
