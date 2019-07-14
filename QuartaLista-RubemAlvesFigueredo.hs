@@ -90,15 +90,15 @@ R - A função é do tipo geral:
     "elem" irá verificar a contagem de "numEqual".
     Assim, se for maior ou igual a 1 será "True", caso contrário retorna "False".
 -}
--- A função permite qualquer tipo, desde que os tipos permitam a comparação (==).
+-- Os tipos são da classe que permite apenas (== ou /=).
 numEqual :: Eq a => a -> [a] -> Int
 numEqual _ [] = 0
 numEqual x (y:ys)
     | x == y = 1 + numEqual x ys
     | otherwise =  numEqual x ys
 
--- Para ser "True" o elemento deve aparecer pelo menos uma vez.
-elem' :: Eq a => a -> [a] -> Bool
+-- Deve aparecer pelo menos uma vez, para ser "True".
+elem' :: Ord a => a -> [a] -> Bool
 elem' x xs
     | (numEqual x xs) >= 1 = True
     | otherwise            = False
